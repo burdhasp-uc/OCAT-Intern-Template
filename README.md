@@ -117,7 +117,7 @@ NOTE: You can name this whatever you want, just make certain that you leave it "
 1. Clone your new repository
     - [Cloning a Repository](https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository)
 2. [Install NodeJS 12.x](docs/install_nodejs.md) on your computer (__Do NOT install Node 14 or the project will not run__)
-3. [Install PostgreSQL](docs/install_postgres.md) using the [instructions in our docs](docs/install_postgres.md)
+3. [Install PostgreSQL](docs/installcd_postgres.md) using the [instructions in our docs](docs/install_postgres.md)
 4. OCAT
     - Navigate into the OCAT/ directory ``cd OCAT/``
     - Verify that the config.json for both directories is correct
