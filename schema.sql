@@ -35,6 +35,20 @@ CREATE TABLE public.assessments (
 );
 
 
+CREATE TABLE assessments (
+    id integer NOT NULL
+    cat_name text NOT NULL
+    cat_date_of_birth text NOT NULL
+    instrument text NOT NULL
+    score integer NOT NULL
+    risk_level integer NOT NULL
+    created_at timestamp with time zone NOT NULL
+    deleted_at timestamp with time zone
+
+    --NEW TABLE FOR ISSUE
+)
+
+
 --
 -- Name: assessments_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
