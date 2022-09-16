@@ -12,16 +12,17 @@
     "./OCAT"
   ],
   "cSpell.words": [
+    "bcrypt's",
+    "caseplans",
+    "Feliway",
     "Fluffykins",
     "ITSC",
     "Microservice",
     "Microservices",
     "OCAT",
     "ORAS",
-    "UCCI",
-    "bcrypt's",
-    "caseplans",
     "postgres",
-    "postico"
+    "postico",
+    "UCCI"
   ]
 }

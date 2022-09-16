@@ -1,12 +1,14 @@
+// eslint-disable-next-line no-unused-vars
+import axios from 'axios';
 import Axios from '../utils/http.config';
 
 export class AssessmentService {
+  // eslint-disable-next-line no-unused-vars
   static submit(assessment) {
     try {
-      // Choose the correct method, url, and data to send
       // in a request to the express OCAT/server/routes/Assessment/index.js
       // NOTE: the http.config file automatically adds /api to the front of your url
-      return Axios.METHOD(`/some-url`, { })
+      return Axios.post(`/api/assessment/submit`, { assessment })
         .then(response => response.data);
     }
     catch (err) {
