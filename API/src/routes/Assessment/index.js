@@ -1,3 +1,7 @@
+/* eslint-disable no-console */
+/* eslint-disable no-undef */
+/* eslint-disable require-await */
+// eslint-disable-next-line no-unused-vars
 const { AssessmentService } = require(`../../microservices`);
 const { ResponseHandler } = require(`../../utils`);
 
@@ -10,7 +14,8 @@ module.exports = server => {
     async (req, res, next) => {
       try {
         const { assessment } = req.params;
-
+        console.log(assessment);
+        AssessmentService.submit(assessment);
         // verify that your data is making it here to the API by using console.log(assessment);
         // call the AssessmentService.submit function from the API/src/microservices/Assessment/ and
         // supply the correct parameters
