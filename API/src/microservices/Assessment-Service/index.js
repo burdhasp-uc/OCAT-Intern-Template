@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const { Assessments } = require(`../Database`);
 
 exports.submit = async (assessment) => {

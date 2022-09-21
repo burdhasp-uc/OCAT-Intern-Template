@@ -1,3 +1,5 @@
+/* eslint-disable no-console */
+/* eslint-disable sort-keys */
 import React from 'react';
 import { useForm } from 'react-hook-form';
 // import ReactDatePicker from "react-datepicker";
@@ -5,13 +7,46 @@ import { AssessmentService } from '../../services/AssessmentService';
 
 export const NewAssessment = () => {
   // eslint-disable-next-line no-unused-vars
-  const { control, formState: { errors }, handleSubmit, register, watch } = useForm();
+  const { control, formState: { errors }, handleSubmit, register, watch } = useForm({
+    defaultValues: {
+      altercations: ``,
+      hissesStrangers: ``,
+      ownerAltercation: ``,
+      playWellDogs: ``,
+      previousContact: ``,
+      score: ``,
+      riskLevel: ``,
+
+    },
+  });
   // create a form that utilizes the "onSubmit" function to send data to OCAT/client/services/AssessmentService.js and
   // then onto the OCAT/server/routes/AssessmentAPI express API
+  const onSubmit = (data) => {
 
-  const onSubmit = async (data) => {
-    await AssessmentService.submit(data);
+    const ques1 = parseInt(data.altercations);
+    const ques2 = parseInt(data.previousContact);
+    const ques3 = parseInt(data.ownerAltercation);
+    const ques4 = parseInt(data.playWellDogs);
+    const ques5 = parseInt(data.hissesStrangers);
+    let score = ``;
+    let riskLevel = ``;
+
+    score = ques1 + ques2 + ques3 + ques4 + ques5;
+
+    if (score <= 1) { riskLevel = `low`; }
+    else if (score > 1 && score < 4) { riskLevel = `medium`; }
+    else { riskLevel = `high`; }
+
+    console.log(ques1);
+    console.log(ques2);
+    console.log(ques3);
+    console.log(ques4);
+    console.log(ques5);
+    console.log(score);
+    console.log(riskLevel);
   };
+
+  // const { score } = ;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -57,6 +92,7 @@ export const NewAssessment = () => {
           1. Physical altercations with other cats.
         </label>
         <select
+          type="text"
           className="form-control"
           name="altercations"
           {...register(`previousContact`, { required: true })}>
@@ -69,6 +105,7 @@ export const NewAssessment = () => {
           2. Previous contact with Cat Judicial System.
         </label>
         <select
+          type="text"
           className="form-control"
           name="previousContact"
           {...register(`previousContact`, { required: true })} >
@@ -82,6 +119,7 @@ export const NewAssessment = () => {
           3. Physical altercations with owner(scratching, biting, etc..)
         </label>
         <select
+          type="text"
           className="form-control"
           name="ownerAltercation"
           {...register(`ownerAltercation`, { required: true })} >
@@ -92,6 +130,7 @@ export const NewAssessment = () => {
       <div className="form-group">
         <label htmlFor="playWellDogs">4. Plays well with dogs.</label>
         <select
+          type="text"
           className="form-control"
           name="playWellDogs"
           {...register(`previousContact`, { required: true })}>
@@ -102,6 +141,7 @@ export const NewAssessment = () => {
       <div className="form-group">
         <label htmlFor="hissesStrangers">5. Hisses at strangers.</label>
         <select
+          type="text"
           className="form-control"
           name="hissesStrangers"
           {...register(`hissesStrangers`, { required: true })} >
