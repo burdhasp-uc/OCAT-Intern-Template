@@ -1,17 +1,22 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
+/* eslint-disable sort-keys */
 import React from 'react';
 import { useForm } from 'react-hook-form';
-// import ReactDatePicker from "react-datepicker";
 import { AssessmentService } from '../../services/AssessmentService';
+// import ReactDatePicker from "react-datepicker";
 
 export const NewAssessment = () => {
-  // eslint-disable-next-line no-unused-vars
-  const { control, formState: { errors }, handleSubmit, register, watch } = useForm();
+  const { control, formState: { errors }, handleSubmit, register, watch } = useForm({
+
+  });
   // create a form that utilizes the "onSubmit" function to send data to OCAT/client/services/AssessmentService.js and
   // then onto the OCAT/server/routes/AssessmentAPI express API
-
   const onSubmit = async (data) => {
     await AssessmentService.submit(data);
   };
+
+  // const { score } = ;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -57,6 +62,7 @@ export const NewAssessment = () => {
           1. Physical altercations with other cats.
         </label>
         <select
+          type="text"
           className="form-control"
           name="altercations"
           {...register(`previousContact`, { required: true })}>
@@ -69,6 +75,7 @@ export const NewAssessment = () => {
           2. Previous contact with Cat Judicial System.
         </label>
         <select
+          type="text"
           className="form-control"
           name="previousContact"
           {...register(`previousContact`, { required: true })} >
@@ -82,6 +89,7 @@ export const NewAssessment = () => {
           3. Physical altercations with owner(scratching, biting, etc..)
         </label>
         <select
+          type="text"
           className="form-control"
           name="ownerAltercation"
           {...register(`ownerAltercation`, { required: true })} >
@@ -92,6 +100,7 @@ export const NewAssessment = () => {
       <div className="form-group">
         <label htmlFor="playWellDogs">4. Plays well with dogs.</label>
         <select
+          type="text"
           className="form-control"
           name="playWellDogs"
           {...register(`previousContact`, { required: true })}>
@@ -102,6 +111,7 @@ export const NewAssessment = () => {
       <div className="form-group">
         <label htmlFor="hissesStrangers">5. Hisses at strangers.</label>
         <select
+          type="text"
           className="form-control"
           name="hissesStrangers"
           {...register(`hissesStrangers`, { required: true })} >
