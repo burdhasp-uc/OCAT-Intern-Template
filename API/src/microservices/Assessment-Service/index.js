@@ -6,7 +6,6 @@ const { submit } = require(`../../../../OCAT/server/libs/AssessmentService`);
 const { Assessments } = require(`../Database`);
 
 exports.submit = async (assessment) => {
-  console.log(assessment);
 
   // use the bookshelf model Assessments from API/src/microservices/Database to save
   // the assessment data in the PostgreSQL database

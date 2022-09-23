@@ -12,7 +12,6 @@ module.exports = server => {
     async (req, res, next) => {
       try {
         const { assessment } = req.params;
-        console.log(assessment);
         AssessmentService.submit(assessment);
 
         // verify that your data is making it here to the API by using console.log(assessment);
