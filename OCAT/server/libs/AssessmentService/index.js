@@ -16,7 +16,6 @@ exports.submit = (assessment) => new Promise((resolve, reject) => {
       if (res.statusCode !== 200) {
         return reject(new InternalServerError(`Request Error`));
       }
-      console.log(body);
       resolve(body.data);
     });
 });

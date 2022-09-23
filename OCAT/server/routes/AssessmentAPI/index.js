@@ -4,6 +4,7 @@ const { AssessmentService } = require(`../../libs`);
 const router = require(`express`).Router();
 
 router.post(`/submit`, (req, res, next) => {
+  console.log(`hello hello`);
   try {
     console.log(`alllo`);
     const { assessment } = req.body;
@@ -17,6 +18,7 @@ router.post(`/submit`, (req, res, next) => {
     });
   } catch (error) {
     next(error);
+    console.log(`error`);
   }
 });
 

@@ -10,5 +10,6 @@
     "name": "ocat",
     "dialect": "pg",
     "minconnections": 2
-  }
+    
+  } 
 }

@@ -4,21 +4,9 @@
 const { submit } = require(`../../../../OCAT/server/libs/AssessmentService`);
 const { Assessments } = require(`../Database`);
 
-exports.submit = function prepareData(data) {
-  const assessment = {
-    name: data.name,
-    instrument: data.instrument,
-    altercations: parseInt(data.altercations),
-    previousContact: parseInt(data.previousContact),
-    ownerAltercation: parseInt(data.ownerAltercation),
-    playWellDogs: parseInt(data.playWellDogs),
-    hissesStrangers: parseInt(data.hissesStrangers),
-    birthday: data.birthday,
-  };
-  assessment.score = calculateScore(assessment);
-  assessment.riskLevel = calculateRiskLevel(assessment);
-
-  return assessment;
+exports.submit = async (assessment) => {
+  // use the bookshelf model Assessments from API/src/microservices/Database to save
+  // the assessment data in the PostgreSQL database
 };
 
 function calculateScore(assessmentData) {
@@ -44,13 +32,13 @@ function calculateRiskLevel(assessmentData) {
 
   return riskLevel;
 }
-// function passAssessment(data) {
-//  const assessment = prepareData(data);
+async function passAssessment(data) {
+  const assessment = prepareData(data);
 
-//  savedAssessment = await newAssessments(assessment);
+  savedAssessment = await newAssessments(assessment);
 
-//  return savedAssessment;
-// }
+  return savedAssessment;
+}
 
 function newAssessments(assessment) {
   return Assessments.forge({
@@ -69,3 +57,5 @@ exports.getList = () => {
 
   return assessments;
 };
+
+module.exports = { passAssessment };

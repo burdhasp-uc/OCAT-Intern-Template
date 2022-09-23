@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { SiteWrapper } from './components';
@@ -10,6 +11,7 @@ export const App = () => <SiteWrapper>
   <BrowserRouter>
     <Route path="/" component={DashboardBulletin} />
     <Route path="/assessment/new" component={NewAssessment} />
+    <Route path="/assessment/list" component={AssessmentList} />
 
   </BrowserRouter>
 </SiteWrapper>;
