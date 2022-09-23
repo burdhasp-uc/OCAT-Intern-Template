@@ -9,7 +9,7 @@ export class AssessmentService {
     try {
       // in a request to the express OCAT/server/routes/Assessment/index.js
       // NOTE: the http.config file automatically adds /api to the front of your url
-      const response = await Axios.post(`/api/assessment/submit`, { assessment });
+      const response = await Axios.post(`/assessment/submit`, { assessment });
       return response.data;
     }
     catch (err) {
@@ -22,7 +22,7 @@ export class AssessmentService {
       // Choose the correct method, url, and data to send
       // in a request to the express OCAT/server/routes/Assessment/index.js
       // NOTE: the http.config file automatically adds /api to the front of your url
-      return Axios.METHOD(`/api/assessment/list`, {
+      return Axios.METHOD(`/assessment/list`, {
         params: {
         },
       })

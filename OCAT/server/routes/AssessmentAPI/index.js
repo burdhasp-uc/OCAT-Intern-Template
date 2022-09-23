@@ -4,16 +4,14 @@ const { AssessmentService } = require(`../../libs`);
 const router = require(`express`).Router();
 
 router.post(`/submit`, (req, res, next) => {
-  console.log(`hello hello`);
   try {
-    console.log(`alllo`);
     const { assessment } = req.body;
     AssessmentService.submit(assessment);
     // call the submit function from the server/libs/AssessmentService
     res.status(201).json({
       status: `success`,
       data: {
-        ...assessment,
+        ...req.body,
       },
     });
   } catch (error) {
@@ -24,6 +22,7 @@ router.post(`/submit`, (req, res, next) => {
 
 router.get(`/list`, (req, res, next) => {
   try {
+    // AssessmentService.getList(assessments);
     // call the getList function from the server/libs/AssessmentService
     // return assessments to front-end
   } catch (error) {

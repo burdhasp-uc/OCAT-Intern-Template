@@ -14,32 +14,28 @@ export const NewAssessment = () => {
       ownerAltercation: ``,
       playWellDogs: ``,
       previousContact: ``,
-      score: ``,
-      riskLevel: ``,
     },
   });
   // create a form that utilizes the "onSubmit" function to send data to OCAT/client/services/AssessmentService.js and
   // then onto the OCAT/server/routes/AssessmentAPI express API
   const onSubmit = async (data) => {
 
-    const ques1 = parseInt(data.altercations);
-    const ques2 = parseInt(data.previousContact);
-    const ques3 = parseInt(data.ownerAltercation);
-    const ques4 = parseInt(data.playWellDogs);
-    const ques5 = parseInt(data.hissesStrangers);
-    let score = ques1 + ques2 + ques3 + ques4 + ques5;
+    const quesAlter = parseInt(data.altercations);
+    const quesCon = parseInt(data.previousContact);
+    const quesOwn = parseInt(data.ownerAltercation);
+    const quesWell = parseInt(data.playWellDogs);
+    const quesHiss = parseInt(data.hissesStrangers);
+    const createdAt = new Date();
+    let score = ``;
     let riskLevel = ``;
 
-    score = ques1 + ques2 + ques3 + ques4 + ques5;
+    score = quesAlter + quesCon + quesOwn + quesWell + quesHiss;
 
-    Results {
-    if (score <= 1) { riskLevel = `low`; }
-    else if (score > 1 && score < 4) { riskLevel = `medium`; }
-    else { riskLevel = `high`; }
-    };
+    if (score <= 1) { riskLevel = `Low`; }
+    else if (score > 1 && score < 4) { riskLevel = `Medium`; }
+    else { riskLevel = `High`; }
 
-
-    await AssessmentService.submit(data);
+    await AssessmentService.submit({ score, riskLevel, createdAt, data });
   };
 
   return (
