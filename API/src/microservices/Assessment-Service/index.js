@@ -3,6 +3,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable sort-keys */
 const { submit } = require(`../../../../OCAT/server/libs/AssessmentService`);
+/* eslint-disable no-unused-vars */
 const { Assessments } = require(`../Database`);
 
 exports.submit = async (assessment) => {

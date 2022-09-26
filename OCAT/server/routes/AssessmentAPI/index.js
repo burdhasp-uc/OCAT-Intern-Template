@@ -1,5 +1,7 @@
 /* eslint-disable no-console */
 /* eslint-disable sort-keys */
+/* eslint-disable sort-keys */
+const router = require(`express`).Router();
 const { AssessmentService } = require(`../../libs`);
 const router = require(`express`).Router();
 
