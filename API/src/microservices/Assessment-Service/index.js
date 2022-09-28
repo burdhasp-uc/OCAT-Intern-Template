@@ -16,7 +16,8 @@ exports.submit = async (assessment) => {
     score: assessment.score,
     risk_level: assessment.riskLevel,
     created_at: assessment.createdAt,
-  }).save(); };
+  }).save(); 
+};
 
 exports.getList = () => {
   // use the bookshelf model Assessments from API/src/microservices/Database to fetch
