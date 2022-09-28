@@ -13,7 +13,6 @@ exports.submit = async (assessment) => {
   Assessments.forge({
     cat_name: assessment.data.name,
     cat_date_of_birth: assessment.data.date,
-    // instrument: assessment.data.instrument,
     score: assessment.score,
     risk_level: assessment.riskLevel,
     created_at: assessment.createdAt,
