@@ -1,7 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable require-await */
-/* eslint-disable no-unused-vars */
-/* eslint-disable sort-keys */
 const { submit } = require(`../../../../OCAT/server/libs/AssessmentService`);
 /* eslint-disable no-unused-vars */
 const { Assessments } = require(`../Database`);
