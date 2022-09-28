@@ -145,8 +145,4 @@ export const NewAssessment = () => {
       </button>
     </form>
   );
-
-  //  </form> return <Form>
-  //  <Button variant="primary" type="submit">Submit</Button>
-  //  </Form>;
 };
