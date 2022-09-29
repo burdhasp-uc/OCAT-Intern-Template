@@ -1,7 +1,3 @@
-/* eslint-disable no-console */
-/* eslint-disable no-undef */
-/* eslint-disable require-await */
-// eslint-disable-next-line no-unused-vars
 const { AssessmentService } = require(`../../microservices`);
 const { ResponseHandler } = require(`../../utils`);
 const BASE_URL = `/assessment`;
@@ -37,6 +33,8 @@ module.exports = server => {
 
         // verify that your data is making it here to the API by using console.log();
         // call the AssessmentService.getList function from the API/src/microservices/Assessment/
+        console.log();
+        AssessmentService.getList();
 
         ResponseHandler(
           res,

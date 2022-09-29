@@ -1,9 +1,4 @@
-/* eslint-disable no-console */
-/* eslint-disable require-await */
-/* eslint-disable no-unused-vars */
-/* eslint-disable sort-keys */
 const { submit } = require(`../../../../OCAT/server/libs/AssessmentService`);
-/* eslint-disable no-unused-vars */
 const { Assessments } = require(`../Database`);
 
 exports.submit = async (assessment) => {
@@ -13,7 +8,6 @@ exports.submit = async (assessment) => {
   Assessments.forge({
     cat_name: assessment.data.name,
     cat_date_of_birth: assessment.data.date,
-    // instrument: assessment.data.instrument,
     score: assessment.score,
     risk_level: assessment.riskLevel,
     created_at: assessment.createdAt,
@@ -22,7 +16,7 @@ exports.submit = async (assessment) => {
 exports.getList = () => {
   // use the bookshelf model Assessments from API/src/microservices/Database to fetch
   // the assessment data from the PostgreSQL database
-  const assessments = [];
+  const assessments = [ Assessments.fetchAll() ];
 
   return assessments;
 };

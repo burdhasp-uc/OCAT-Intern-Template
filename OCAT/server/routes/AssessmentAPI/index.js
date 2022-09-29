@@ -1,9 +1,5 @@
-/* eslint-disable no-console */
-/* eslint-disable sort-keys */
-/* eslint-disable sort-keys */
 const router = require(`express`).Router();
 const { AssessmentService } = require(`../../libs`);
-const router = require(`express`).Router();
 
 router.post(`/submit`, (req, res, next) => {
   try {
@@ -27,6 +23,13 @@ router.get(`/list`, (req, res, next) => {
     // AssessmentService.getList(assessments);
     // call the getList function from the server/libs/AssessmentService
     // return assessments to front-end
+    AssessmentService.getList();
+    res.status(201).json({
+      status: `success`,
+      data: {
+        ...req.body,
+      },
+  });
   } catch (error) {
     next(error);
   }

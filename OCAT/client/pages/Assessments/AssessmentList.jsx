@@ -1,4 +1,3 @@
-/* eslint-disable react/self-closing-comp */
 import React, { useEffect, useState } from 'react';
 import ReactTable from 'react-table';
 import { AssessmentService } from '../../services/AssessmentService';
@@ -9,13 +8,13 @@ export const AssessmentList = () => {
   // fetch all assessments using the AssessmentService.getList function from OCAT/client/services/AssessmentService.js
   useEffect(() => {
     const fetchAssessments = async () => {
-      setAssessments(await AssessmentService.getList(assessments));
+      setAssessments(await AssessmentService.getList(data));
     };
     fetchAssessments();
   }, [ assessments ]);
 
   const data = assessments;
-
+  
   const columns = [{
     Header: `Instrument`,
     accessor: `instrument`,
