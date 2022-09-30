@@ -72,7 +72,7 @@ export const NewAssessment = () => {
         <input
           type="date"
           id="start"
-          name="trip-start"
+          name="DOB"
           min="2000-01-01"
           max="2022-12-31"
           {...register(`date`, { required: true })} />

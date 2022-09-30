@@ -1,3 +1,5 @@
+/* eslint-disable require-await */
+/* eslint-disable no-console */
 const { AssessmentService } = require(`../../microservices`);
 const { ResponseHandler } = require(`../../utils`);
 const BASE_URL = `/assessment`;
@@ -14,12 +16,12 @@ module.exports = server => {
         // call the AssessmentService.submit function from the API/src/microservices/Assessment/ and
         // supply the correct parameters
 
-        ResponseHandler(
-          res,
-          `Submitted assessment`,
-          {},
+        ResponseHandler({
+          data: {},
+          message: `Submitted assessment`,
           next,
-        );
+          res,
+        });
       } catch (err) {
         next(err);
       }
@@ -30,18 +32,16 @@ module.exports = server => {
     `${BASE_URL}/list`,
     async (req, res, next) => {
       try {
-
         // verify that your data is making it here to the API by using console.log();
         // call the AssessmentService.getList function from the API/src/microservices/Assessment/
-        console.log();
-        AssessmentService.getList();
+        const assessments = await AssessmentService.getList();
 
-        ResponseHandler(
-          res,
-          `Fetched assessments`,
-          { assessments },
+        ResponseHandler({
+          data: { assessments },
+          message: `Fetched assessments`,
           next,
-        );
+          res,
+        });
       } catch (err) {
         next(err);
       }

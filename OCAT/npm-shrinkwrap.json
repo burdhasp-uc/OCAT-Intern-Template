@@ -2176,6 +2176,19 @@
         "lodash-es": "^4.17.20"
       }
     },
+    "@tanstack/react-table": {
+      "version": "8.5.13",
+      "resolved": "https://registry.npmjs.org/@tanstack/react-table/-/react-table-8.5.13.tgz",
+      "integrity": "sha512-k52HsnonKwDZMCIy59HfehTnkJYlqkqyvC+BAV0DyWdN9WmSbVq+Kf+luJVENQnXcnEX47dBHiHAjqZu592ZLQ==",
+      "requires": {
+        "@tanstack/table-core": "8.5.13"
+      }
+    },
+    "@tanstack/table-core": {
+      "version": "8.5.13",
+      "resolved": "https://registry.npmjs.org/@tanstack/table-core/-/table-core-8.5.13.tgz",
+      "integrity": "sha512-kvDRjC7LrLNNNgUMfsBz3nHOwbBLFdosWQ16dfbD9D/OJrvFHRXoUIPzF0MNqqSPghaj7/18fnwXHGypvzoh9Q=="
+    },
     "@tootallnate/once": {
       "version": "1.1.2",
       "resolved": "https://registry.npmjs.org/@tootallnate/once/-/once-1.1.2.tgz",

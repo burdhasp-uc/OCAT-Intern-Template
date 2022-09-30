@@ -1,4 +1,6 @@
-const { submit } = require(`../../../../OCAT/server/libs/AssessmentService`);
+/* eslint-disable require-await */
+/* eslint-disable no-console */
+/* eslint-disable sort-keys */
 const { Assessments } = require(`../Database`);
 
 exports.submit = async (assessment) => {
@@ -11,12 +13,15 @@ exports.submit = async (assessment) => {
     score: assessment.score,
     risk_level: assessment.riskLevel,
     created_at: assessment.createdAt,
-  }).save(); };
+  }).save();
+};
 
-exports.getList = () => {
+// AssessmentService.getList()l
+
+exports.getList = async () => {
   // use the bookshelf model Assessments from API/src/microservices/Database to fetch
   // the assessment data from the PostgreSQL database
-  const assessments = [ Assessments.fetchAll() ];
+  const assessments = await Assessments.fetchAll();
 
   return assessments;
 };

@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
 const { client, config } = require(`../../utils`);
 const { InternalServerError } = require(`restify-errors`);
 
