@@ -4,7 +4,6 @@
 // eslint-disable-next-line no-unused-vars
 const { AssessmentService } = require(`../../microservices`);
 const { ResponseHandler } = require(`../../utils`);
-
 const BASE_URL = `/assessment`;
 
 module.exports = server => {
@@ -14,7 +13,6 @@ module.exports = server => {
     async (req, res, next) => {
       try {
         const { assessment } = req.params;
-        console.log(assessment);
         AssessmentService.submit(assessment);
         // verify that your data is making it here to the API by using console.log(assessment);
         // call the AssessmentService.submit function from the API/src/microservices/Assessment/ and
