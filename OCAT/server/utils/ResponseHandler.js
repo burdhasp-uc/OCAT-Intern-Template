@@ -1,11 +1,9 @@
-const ResponseHandler = ({ res, message, data = {}, next }) => {
+const ResponseHandler = ({ res, message, data = {} }) => {
   res.json({
     data,
     message,
     status: `SUCCESS`,
   });
-
-  next();
 };
 
 module.exports = { ResponseHandler };

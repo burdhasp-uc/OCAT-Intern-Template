@@ -28,6 +28,7 @@ CREATE TABLE public.assessments (
     id integer NOT NULL,
     score integer NOT NULL,
     risk_level text NOT NULL,
+    -- instrument text NOT NULL
     cat_name text NOT NULL,
     cat_date_of_birth date NOT NULL,
     created_at timestamp with time zone NOT NULL,
@@ -35,18 +36,18 @@ CREATE TABLE public.assessments (
 );
 
 
-CREATE TABLE assessments (
-    id integer NOT NULL
-    cat_name text NOT NULL
-    cat_date_of_birth text NOT NULL
-    instrument text NOT NULL
-    score integer NOT NULL
-    risk_level integer NOT NULL
-    created_at timestamp with time zone NOT NULL
-    deleted_at timestamp with time zone
+-- CREATE TABLE assessments (
+--    id integer NOT NULL
+--    cat_name text NOT NULL
+--    cat_date_of_birth text NOT NULL
+--    instrument text NOT NULL
+--    score integer NOT NULL
+--   risk_level integer NOT NULL
+--    created_at timestamp with time zone NOT NULL
+--    deleted_at timestamp with time zone
 
     --NEW TABLE FOR ISSUE
-)
+-- )
 
 
 --

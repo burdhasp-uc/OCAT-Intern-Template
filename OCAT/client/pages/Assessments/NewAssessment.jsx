@@ -1,12 +1,12 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 /* eslint-disable sort-keys */
 import React from 'react';
 import { useForm } from 'react-hook-form';
-// import ReactDatePicker from "react-datepicker";
 import { AssessmentService } from '../../services/AssessmentService';
+// import ReactDatePicker from "react-datepicker";
 
 export const NewAssessment = () => {
-  // eslint-disable-next-line no-unused-vars
   const { control, formState: { errors }, handleSubmit, register, watch } = useForm({
     defaultValues: {
       altercations: ``,
@@ -14,39 +14,29 @@ export const NewAssessment = () => {
       ownerAltercation: ``,
       playWellDogs: ``,
       previousContact: ``,
-      score: ``,
-      riskLevel: ``,
-
     },
   });
   // create a form that utilizes the "onSubmit" function to send data to OCAT/client/services/AssessmentService.js and
   // then onto the OCAT/server/routes/AssessmentAPI express API
-  const onSubmit = (data) => {
+  const onSubmit = async (data) => {
 
-    const ques1 = parseInt(data.altercations);
-    const ques2 = parseInt(data.previousContact);
-    const ques3 = parseInt(data.ownerAltercation);
-    const ques4 = parseInt(data.playWellDogs);
-    const ques5 = parseInt(data.hissesStrangers);
+    const quesAlter = parseInt(data.altercations);
+    const quesCon = parseInt(data.previousContact);
+    const quesOwn = parseInt(data.ownerAltercation);
+    const quesWell = parseInt(data.playWellDogs);
+    const quesHiss = parseInt(data.hissesStrangers);
+    const createdAt = new Date();
     let score = ``;
     let riskLevel = ``;
 
-    score = ques1 + ques2 + ques3 + ques4 + ques5;
+    score = quesAlter + quesCon + quesOwn + quesWell + quesHiss;
 
-    if (score <= 1) { riskLevel = `low`; }
-    else if (score > 1 && score < 4) { riskLevel = `medium`; }
-    else { riskLevel = `high`; }
+    if (score <= 1) { riskLevel = `Low`; }
+    else if (score > 1 && score < 4) { riskLevel = `Medium`; }
+    else { riskLevel = `High`; }
 
-    console.log(ques1);
-    console.log(ques2);
-    console.log(ques3);
-    console.log(ques4);
-    console.log(ques5);
-    console.log(score);
-    console.log(riskLevel);
+    await AssessmentService.submit({ score, riskLevel, createdAt, data });
   };
-
-  // const { score } = ;
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
@@ -82,9 +72,10 @@ export const NewAssessment = () => {
         <input
           type="date"
           id="start"
-          name="trip-start"
+          name="DOB"
           min="2000-01-01"
-          max="2022-12-31" />
+          max="2022-12-31"
+          {...register(`date`, { required: true })} />
       </div>
 
       <div className="form-group">
@@ -95,7 +86,7 @@ export const NewAssessment = () => {
           type="text"
           className="form-control"
           name="altercations"
-          {...register(`previousContact`, { required: true })}>
+          {...register(`altercations`, { required: true })}>
           <option value="0">0-3 altercations</option>
           <option value="1">3+ altercations</option>
         </select>
@@ -133,7 +124,7 @@ export const NewAssessment = () => {
           type="text"
           className="form-control"
           name="playWellDogs"
-          {...register(`previousContact`, { required: true })}>
+          {...register(`playWellDogs`, { required: true })}>
           <option value="0">Yes</option>
           <option value="1">No</option>
         </select>
@@ -147,7 +138,6 @@ export const NewAssessment = () => {
           {...register(`hissesStrangers`, { required: true })} >
           <option value="1">Yes</option>
           <option value="0">No</option>
-
         </select>
       </div>
       <button type="submit" className="btn btn-primary">
