@@ -28,11 +28,6 @@ router.get(`/list`, async (req, res, next) => {
       message: `Got all assessments to view.`,
       res,
     });
-
-    // res.status(201).json({
-    //   data: assessments,
-    //   status: `success`,
-    // });
   } catch (error) {
     next(error);
   }

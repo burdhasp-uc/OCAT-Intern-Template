@@ -16,7 +16,6 @@ exports.submit = async (assessment) => {
   }).save();
 };
 
-// AssessmentService.getList()l
 
 exports.getList = async () => {
   // use the bookshelf model Assessments from API/src/microservices/Database to fetch

@@ -21,14 +21,6 @@ export class AssessmentService {
       // NOTE: the http.config file automatically adds /api to the front of your url
       return await Axios.get(`/assessment/list`)
         .then(response =>
-          // expected
-          // response: {
-          //   data: {
-          //     data: {
-          //       assessments: [{}]
-          //     }
-          //   }
-          // }
           response.data.data.assessments);
     }
     catch (err) {

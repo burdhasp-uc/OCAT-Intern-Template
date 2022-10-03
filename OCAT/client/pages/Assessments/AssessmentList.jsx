@@ -89,30 +89,6 @@ export const AssessmentList = () => {
       <Table columns={columns} data={assessments} />
     </div>
 
-  //  <div className="list-group">
-  //     <table className="table table-striped table-hover">
-  //       <thead className="thead-dark">
-  //         <tr>
-  //           <th scope="col">Cat Name</th>
-  //           <th scope="col">Date of Birth</th>
-  //           <th scope="col">Score</th>
-  //           <th scope="col">Risk Level</th>
-  //           <th scope="col">Created At</th>
-  //         </tr>
-  //       </thead>
-  //       <tbody>
-  //         {assessments && assessments.map(assessment =>
-  //           <tr key={assessment.id}>
-  //             <td>{assessment.cat_name}</td>
-  //             <td>{assessment.cat_date_of_birth}</td>
-  //             <td>{assessment.score}</td>
-  //             <td>{assessment.risk_level}</td>
-  //             <td>{assessment.created_at}</td>
-  //           </tr>)
-  //         }
-  //       </tbody>
-  //     </table>
-  //   </div>
   );
 };
 
